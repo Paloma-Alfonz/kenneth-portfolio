@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --shamrock: #59705B;
+    --shamrock-dark: #3d5040;
+    --shamrock-light: #ecf0ec;
+    --lucky: #BBBB9A;
+    --lucky-light: #f5f5ef;
+    --paddy: #9AAEA3;
+    --paddy-light: #eef1f0;
+    --pinch: #E2E2DB;
+    --pinch-dark: #c8c8c0;
+    --text-primary: #2a2a2a;
+    --text-secondary: #5a5a5a;
+    --text-muted: #8a8a8a;
+    --bg: #fafaf8;
+    --white: #ffffff;
+    --border: rgba(89,112,91,0.15);
+    --border-strong: rgba(89,112,91,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--shamrock);
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--shamrock); }
+
+  /* LAYOUT */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--shamrock);
+    color: white;
+    padding: 5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lucky);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: white;
+  }
+  .hero-title span { color: var(--lucky); }
+  .hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    max-width: 540px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat-val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .hero-stat-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .section-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--shamrock);
+    background: var(--shamrock-light);
+    border: 1px solid var(--border-strong);
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+  .section-meta h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+  }
+  .section-meta p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    max-width: 620px;
+  }
+
+  /* METRICS GRID */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .metric-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .metric-card.accent {
+    background: var(--shamrock-light);
+    border-color: var(--border-strong);
+  }
+  .metric-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--shamrock-dark);
+    line-height: 1.1;
+  }
+  .metric-lbl {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+  .metric-note {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+  .card-body {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 640px) {
+    .two-col, .three-col { grid-template-columns: 1fr; }
+  }
+
+  /* INLINE METRICS inside cards */
+  .inline-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 0.75rem;
+  }
+  .im-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--shamrock);
+  }
+  .im-lbl {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-green { background: #dff0df; color: #2d6b2d; }
+  .badge-amber { background: #f5f0dd; color: #7a5e10; }
+
+  /* TAGS */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 0.75rem;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    color: var(--shamrock-dark);
+    background: var(--shamrock-light);
+  }
+  .tag-paddy {
+    background: var(--paddy-light);
+    border-color: var(--paddy);
+    color: #3d5248;
+  }
+  .tag-lucky {
+    background: var(--lucky-light);
+    border-color: var(--lucky);
+    color: #5a5a3a;
+  }
+  .tag-neutral {
+    background: var(--pinch);
+    border-color: var(--pinch-dark);
+    color: var(--text-secondary);
+  }
+
+  /* CASE ROWS */
+  .case-list { margin-top: 0.5rem; }
+  .case-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .case-row:first-child { border-top: none; }
+  .case-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--shamrock);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .case-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .case-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* CLIENT SECTION DIVIDER */
+  .client-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paddy);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .client-label:first-child { margin-top: 0; }
+
+  /* INSIGHT BOX */
+  .insight {
+    background: var(--lucky-light);
+    border-left: 3px solid var(--lucky);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.1rem;
+    margin-top: 1rem;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .insight strong { color: var(--text-primary); }
+
+  /* SKILLS SECTION */
+  .skills-wrap {
+    background: var(--shamrock);
+    padding: 3rem 2rem;
+    margin-top: 0;
+  }
+  .skills-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .skills-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1.25rem;
+  }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--shamrock-dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 12px;
+    padding: 1.5rem 2rem;
+  }
+
+  /* UTILITIES */
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .mt-3 { margin-top: 1.5rem; }
+  .mb-0 { margin-bottom: 0; }
+
+  /* HIGHLIGHT STRIP */
+  .highlight-strip {
+    background: var(--pinch);
+    border: 1px solid var(--pinch-dark);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .hs-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--shamrock);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .hs-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .hs-text strong { color: var(--text-primary); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#paid-search">Search</a></li>
+      <li><a href="#paid-social">Paid Social</a></li>
+      <li><a href="#linkedin">LinkedIn</a></li>
+      <li><a href="#edm">EDM</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#events">Events</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Digital Marketing Portfolio</div>
+    <h1 class="hero-title">Content, Campaigns<br><span>&amp; Measurable Growth</span></h1>
+    <p class="hero-desc">A track record across paid advertising, organic social, email marketing, and content — built for B2B SaaS, fintech, HR tech, and accounting software clients across AU/NZ.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">7+</div>
+        <div class="hero-stat-lbl">Clients managed</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">4,143</div>
+        <div class="hero-stat-lbl">Peak event registrations</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">58.1%</div>
+        <div class="hero-stat-lbl">Best EDM open rate</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">9,631</div>
+        <div class="hero-stat-lbl">LinkedIn connections grown</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main>
+
+<!-- 01 PAID SEARCH -->
+<div id="paid-search" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">01 — Paid Search</div>
+      <div class="section-meta">
+        <h2>Google Ads Campaigns</h2>
+        <p>B2B SaaS clients in the fintech and accounting space. Managed search campaigns driving qualified inbound traffic.</p>
+      </div>
+    </div>
+
+    <div class="client-label">Fintech SaaS — general search</div>
+    <div class="metrics-grid">
+      <div class="metric-card accent">
+        <div class="metric-val">29</div>
+        <div class="metric-lbl">Clicks</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">2,577</div>
+        <div class="metric-lbl">Impressions</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">1.13%</div>
+        <div class="metric-lbl">CTR</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">A$32.45</div>
+        <div class="metric-lbl">Avg CPC</div>
+      </div>
+    </div>
+
+    <div class="client-label">B2B SaaS — LinkedIn Image &amp; Video Ads (Oncord)</div>
+    <div class="two-col">
+      <div class="card mb-0">
+        <div class="card-title">Image Ads — Week A</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">A$918</div><div class="im-lbl">Spend</div></div>
+          <div><div class="im-val">173</div><div class="im-lbl">Website visits</div></div>
+          <div><div class="im-val">A$5.30</div><div class="im-lbl">Avg CPC</div></div>
+          <div><div class="im-val">1.79%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">9,642</div><div class="im-lbl">Impressions</div></div>
+        </div>
+      </div>
+      <div class="card mb-0">
+        <div class="card-title">Image Ads — Week B</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">A$664</div><div class="im-lbl">Spend</div></div>
+          <div><div class="im-val">120</div><div class="im-lbl">Website visits</div></div>
+          <div><div class="im-val">A$5.53</div><div class="im-lbl">Avg CPC</div></div>
+          <div><div class="im-val">1.67%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">7,175</div><div class="im-lbl">Impressions</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Google Ads — video vs static creative test</div>
+      <div class="card-body">Week-on-week clicks rose from ~577 to 1,676 (+1,099) after shifting the account from static to video-only ads. Result: the account was permanently switched to video ads based on this performance delta.</div>
+    </div>
+
+    <div class="insight"><strong>Key insight:</strong> Video ads outperformed static consistently on Google — switching the account to video-only drove a 190%+ week-on-week click increase. On LinkedIn, CPC averaged A$5.30–5.53 across image campaigns, consistent with B2B SaaS benchmarks.</div>
+    <div class="tags">
+      <span class="tag">Google Ads</span>
+      <span class="tag">LinkedIn Ads</span>
+      <span class="tag">Creative testing</span>
+      <span class="tag">B2B SaaS</span>
+      <span class="tag">100% budget utilisation</span>
+    </div>
+  </div>
+</div>
+
+<!-- 02 PAID SOCIAL / META -->
+<div id="paid-social" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02 — Paid Social</div>
+      <div class="section-meta">
+        <h2>Meta Ads — Fintech SaaS (AU)</h2>
+        <p>Managed Meta campaigns across Facebook and Instagram, testing animated vs still image creative. Total budget: A$504.84 across 3 ad sets, 38-day campaign window.</p>
+      </div>
+    </div>
+
+    <div class="highlight-strip">
+      <div class="hs-dot"></div>
+      <div class="hs-text"><strong>Best performer:</strong> Still Image V2 — 562 link clicks at A$0.67/click across 48,088 impressions and 22,738 reach. Creative iteration (V2) delivered ~20× more clicks than the animated set on comparable budget.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Still Image V2 <span class="badge badge-green">Top performer</span></div>
+      <div class="inline-metrics">
+        <div><div class="im-val">562</div><div class="im-lbl">Link clicks</div></div>
+        <div><div class="im-val">A$0.67</div><div class="im-lbl">Per link click</div></div>
+        <div><div class="im-val">48,088</div><div class="im-lbl">Impressions</div></div>
+        <div><div class="im-val">22,738</div><div class="im-lbl">Reach</div></div>
+        <div><div class="im-val">Ad set budget</div><div class="im-lbl">Utilised in full</div></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card mb-0">
+        <div class="card-title">Still Image (V1)</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">2,362</div><div class="im-lbl">Reach</div></div>
+          <div><div class="im-val">A$1.98</div><div class="im-lbl">CPM</div></div>
+          <div><div class="im-val">A$250</div><div class="im-lbl">Budget</div></div>
+          <div><div class="im-val">A$4.68</div><div class="im-lbl">Spent</div></div>
+        </div>
+      </div>
+      <div class="card mb-0">
+        <div class="card-title">Animated Image</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">2,228</div><div class="im-lbl">Reach</div></div>
+          <div><div class="im-val">A$2.06</div><div class="im-lbl">CPM</div></div>
+          <div><div class="im-val">2,231</div><div class="im-lbl">Impressions</div></div>
+          <div><div class="im-val">A$4.59</div><div class="im-lbl">Spent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight"><strong>Placement:</strong> Facebook Feed, Instagram Feed, Stories, Marketplace, and Reels — full cross-platform coverage tested. Still creative V2 validated the value of iterative creative testing over animated formats in this niche.</div>
+    <div class="tags">
+      <span class="tag">Meta Ads Manager</span>
+      <span class="tag">Creative A/B testing</span>
+      <span class="tag">Facebook &amp; Instagram</span>
+      <span class="tag">Fintech SaaS</span>
+    </div>
+  </div>
+</div>
+
+<!-- 03 LINKEDIN ORGANIC -->
+<div id="linkedin" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03 — Organic Social</div>
+      <div class="section-meta">
+        <h2>LinkedIn Growth — HR Tech SaaS Founder</h2>
+        <p>Full LinkedIn content strategy: weekly planning, copywriting, video coordination, and analytics reporting over a 4-month engagement.</p>
+      </div>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card accent">
+        <div class="metric-val">+1,289</div>
+        <div class="metric-lbl">Net new connections</div>
+        <div class="metric-note">8,342 → 9,631 over 4 months</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">+1,200+</div>
+        <div class="metric-lbl">Net new followers</div>
+        <div class="metric-note">From ~8,600 to 9,821</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">11,980</div>
+        <div class="metric-lbl">Peak impressions/week</div>
+        <div class="metric-note">+239% WoW spike</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">525</div>
+        <div class="metric-lbl">Newsletter subscribers</div>
+        <div class="metric-note">Week 1 of launch</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">2,453</div>
+        <div class="metric-lbl">Best weekly impressions</div>
+        <div class="metric-note">+53% WoW growth</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">176</div>
+        <div class="metric-lbl">Peak profile views/week</div>
+        <div class="metric-note">+135% WoW at peak</div>
+      </div>
+    </div>
+
+    <div class="card-title mt-2" style="font-size:13px; color:var(--text-secondary); margin-bottom:0.5rem;">Top performing posts</div>
+    <div class="case-list">
+      <div class="case-row">
+        <div class="case-icon">1</div>
+        <div>
+          <div class="case-title">"There's a quiet crisis in HR right now" — 2,102 impressions · 31 reactions</div>
+          <div class="case-desc">Bold POV post drove a 75.6% WoW impressions surge. Highest single-post reach of the engagement.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">2</div>
+        <div>
+          <div class="case-title">"AI framed as a threat" — 1,000 impressions · 20 reactions</div>
+          <div class="case-desc">Topical AI commentary validated demand for thought-leadership takes on workplace AI.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">3</div>
+        <div>
+          <div class="case-title">Job post for charity partner — 7,341 impressions</div>
+          <div class="case-desc">Authentic, mission-aligned content dramatically outperformed brand-only posts.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">4</div>
+        <div>
+          <div class="case-title">LinkedIn newsletter launch — 488 impressions · 11 reactions</div>
+          <div class="case-desc">Drove 525 new newsletter subscribers in its first week, boosting profile visibility simultaneously.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight"><strong>Key learnings:</strong> Expert-tagged thought leadership posts (featuring Gartner, academics, podcast guests) consistently drove highest impressions. Cadence was the #1 lever — dropping below 2 posts/week caused a 50–65% reach drop. Document carousels achieved up to 11% CTR vs 0% for single images.</div>
+    <div class="tags">
+      <span class="tag">LinkedIn strategy</span>
+      <span class="tag">Content calendar</span>
+      <span class="tag">Copywriting</span>
+      <span class="tag">Video coordination</span>
+      <span class="tag">Weekly analytics</span>
+      <span class="tag">Newsletter launch</span>
+    </div>
+  </div>
+</div>
+
+<!-- 04 EDM -->
+<div id="edm" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">04 — Email Marketing</div>
+      <div class="section-meta">
+        <h2>EDM Campaigns Across Multiple Clients</h2>
+        <p>Planned, wrote, and deployed EDMs across Mailchimp and HubSpot for 5+ clients — covering post-webinar follow-ups, compliance campaigns, product updates, and thought-leadership sends.</p>
+      </div>
+    </div>
+
+    <div class="client-label">Accounting software — post-webinar follow-up EDM</div>
+    <div class="card">
+      <div class="card-title">Post-webinar follow-up <span class="badge badge-green">58.1% open rate</span></div>
+      <div class="inline-metrics">
+        <div><div class="im-val">58.1%</div><div class="im-lbl">Open rate</div></div>
+        <div><div class="im-val">11.0%</div><div class="im-lbl">Click rate</div></div>
+        <div><div class="im-val">19.0%</div><div class="im-lbl">Clicks/unique opens</div></div>
+        <div><div class="im-val">136</div><div class="im-lbl">Delivered</div></div>
+        <div><div class="im-val">1.5%</div><div class="im-lbl">Unsub rate</div></div>
+      </div>
+    </div>
+
+    <div class="client-label">Bookkeeping/payroll SaaS — post-webinar &amp; product EDMs</div>
+    <div class="two-col">
+      <div class="card mb-0">
+        <div class="card-title">Post-webinar EDM</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">38.24%</div><div class="im-lbl">Open rate (excl. bots)</div></div>
+          <div><div class="im-val">16.47%</div><div class="im-lbl">Click rate</div></div>
+          <div><div class="im-val">43.08%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">170</div><div class="im-lbl">Sent</div></div>
+          <div><div class="im-val">33</div><div class="im-lbl">Clicks to resource page</div></div>
+        </div>
+      </div>
+      <div class="card mb-0">
+        <div class="card-title">BAS Reporting EDM</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">12.74%</div><div class="im-lbl">Open rate</div></div>
+          <div><div class="im-val">5.21%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">0.66%</div><div class="im-lbl">Click rate</div></div>
+          <div><div class="im-val">3,316</div><div class="im-lbl">Sent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-label">Accounting ops SaaS — webinar invite &amp; follow-up sequence</div>
+    <div class="three-col">
+      <div class="card mb-0">
+        <div class="card-title">Webinar invite</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">11.35%</div><div class="im-lbl">Open rate</div></div>
+          <div><div class="im-val">2.22%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">2,003</div><div class="im-lbl">Sent</div></div>
+        </div>
+      </div>
+      <div class="card mb-0">
+        <div class="card-title">Blog promo + reminder</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">9.39%</div><div class="im-lbl">Open rate</div></div>
+          <div><div class="im-val">7.43%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">1,866</div><div class="im-lbl">Sent</div></div>
+        </div>
+      </div>
+      <div class="card mb-0">
+        <div class="card-title">Month-end content send</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">10.93%</div><div class="im-lbl">Open rate</div></div>
+          <div><div class="im-val">0.95%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">1,931</div><div class="im-lbl">Sent</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-label mt-3">HR Tech SaaS — newsletter &amp; marketing EDMs</div>
+    <div class="two-col">
+      <div class="card mb-0">
+        <div class="card-title">Newsletter launch EDM</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">22.53%</div><div class="im-lbl">Open rate</div></div>
+          <div><div class="im-val">4.58%</div><div class="im-lbl">CTR</div></div>
+          <div><div class="im-val">684</div><div class="im-lbl">Audience</div></div>
+          <div><div class="im-val">1.62%</div><div class="im-lbl">Unsub rate</div></div>
+        </div>
+      </div>
+      <div class="card mb-0">
+        <div class="card-title">Marketing EDM (Mailchimp)</div>
+        <div class="inline-metrics">
+          <div><div class="im-val">14.17%</div><div class="im-lbl">Open rate</div></div>
+          <div><div class="im-val">3.6%</div><div class="im-lbl">CTR (excl. bots)</div></div>
+          <div><div class="im-val">0.31%</div><div class="im-lbl">Unsub rate</div></div>
+          <div><div class="im-val">981</div><div class="im-lbl">Delivered</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight"><strong>EDM highlights:</strong> Best-in-class open rate of 58.1% on a post-webinar follow-up (accounting software). Post-webinar EDMs consistently outperformed cold campaigns — CTRs of 43% (bookkeeping SaaS) and 19% (accounting software) show high intent audiences. AUSTRAC compliance campaign for a payments SaaS anchored a 4-week integrated EDM + social push timed to the 1 July 2026 regulatory deadline.</div>
+    <div class="tags">
+      <span class="tag">Mailchimp</span>
+      <span class="tag">HubSpot</span>
+      <span class="tag">EDM copywriting</span>
+      <span class="tag">Compliance campaigns</span>
+      <span class="tag-paddy tag">Post-webinar sequences</span>
+      <span class="tag-paddy tag">Product update EDMs</span>
+    </div>
+  </div>
+</div>
+
+<!-- 05 CONTENT -->
+<div id="content" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">05 — Content &amp; Blog</div>
+      <div class="section-meta">
+        <h2>Website Content, Blogs &amp; Case Studies</h2>
+        <p>Long-form articles, case studies, landing pages, and video-support content for clients across HR tech, fintech, and accounting SaaS.</p>
+      </div>
+    </div>
+
+    <div class="client-label">HR Tech SaaS</div>
+    <div class="case-list">
+      <div class="case-row" style="border-top:none; padding-top:0;">
+        <div class="case-icon">✍</div>
+        <div>
+          <div class="case-title">Expert interview series — 6 long-form articles published</div>
+          <div class="case-desc">Wrote and published thought leadership articles featuring a Gartner VP of Advisory and a future-of-work researcher. Each piece embedded YouTube video content, research data, and product CTAs. Covered topics including AI's impact on HR, middle manager work design, and the skills-vs-tasks debate.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">✍</div>
+        <div>
+          <div class="case-title">SMART Work Design research study write-up</div>
+          <div class="case-desc">Translated a 6-month academic research study (400+ managers across 4 organisations) into a compelling long-form blog post with data callouts, infographics, and actionable recommendations. Co-published with Dr Sharon Parker of Curtin University.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-label">Fintech payments platform</div>
+    <div class="case-list">
+      <div class="case-row" style="border-top:none; padding-top:0;">
+        <div class="case-icon">✍</div>
+        <div>
+          <div class="case-title">Invoice software comparison guide</div>
+          <div class="case-desc">SEO-optimised 3,000-word buyer's guide comparing 6 leading Australian invoice platforms (Xero, MYOB, QuickBooks, Zoho, FreshBooks, EasyBusiness App). Structured for search intent with FAQ section and decision framework.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">✍</div>
+        <div>
+          <div class="case-title">Amex points maximisation guide + customer case study</div>
+          <div class="case-desc">Written guide on earning rewards on business expenses via the platform, paired with a CEO case study (fintech company saving 6 hours/week via payment automation). Used for organic search and sales enablement.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-label">Accounting software SaaS (AU/NZ)</div>
+    <div class="case-list">
+      <div class="case-row" style="border-top:none; padding-top:0;">
+        <div class="case-icon">✍</div>
+        <div>
+          <div class="case-title">AUSTRAC Tranche 2 compliance guide</div>
+          <div class="case-desc">Produced a technical yet accessible explainer for accounting firms on new AML/KYC obligations taking effect 1 July 2026 — timed as a content-led launch for the client's new compliance feature.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">✍</div>
+        <div>
+          <div class="case-title">PKF case study — "From 7× manual re-entry to one click"</div>
+          <div class="case-desc">Interviewed a 20-year PKF partner and wrote a structured case study covering problem, evaluation, solution, and ROI. Featured in webinar follow-up EDM and organic social promotion.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags mt-2">
+      <span class="tag">Blog writing</span>
+      <span class="tag">SEO content</span>
+      <span class="tag">Case studies</span>
+      <span class="tag">Technical writing</span>
+      <span class="tag tag-paddy">Expert interview write-ups</span>
+      <span class="tag tag-paddy">Compliance content</span>
+      <span class="tag tag-paddy">Video-support articles</span>
+    </div>
+  </div>
+</div>
+
+<!-- 06 EVENTS -->
+<div id="events" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">06 — Events &amp; Webinars</div>
+      <div class="section-meta">
+        <h2>Virtual Event &amp; Webinar Marketing</h2>
+        <p>End-to-end event marketing support: briefs, promo assets, EDM sequences, speaker coordination, and post-event follow-up — across accounting, HR tech, and fintech verticals.</p>
+      </div>
+    </div>
+
+    <div class="client-label">Accounting software — virtual conferences (registration figures)</div>
+    <div class="metrics-grid">
+      <div class="metric-card accent">
+        <div class="metric-val">4,143</div>
+        <div class="metric-lbl">Intuit QuickFest 2026</div>
+        <div class="metric-note">12 talks · 13 speakers · AI &amp; Innovation theme</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">1,718</div>
+        <div class="metric-lbl">Intuit QuickFest 2025</div>
+        <div class="metric-note">17 talks · 19 speakers</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">1,953</div>
+        <div class="metric-lbl">QuickFest Nov 2024</div>
+        <div class="metric-note">14 talks · 17 speakers</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">720</div>
+        <div class="metric-lbl">QuickFest AU 2026</div>
+        <div class="metric-note">12 talks · 13 speakers</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">2,039</div>
+        <div class="metric-lbl">AI in Practice Summit 2026</div>
+        <div class="metric-note">17 talks · 19 speakers</div>
+      </div>
+      <div class="metric-card accent">
+        <div class="metric-val">1,277</div>
+        <div class="metric-lbl">Growth Club Summit</div>
+        <div class="metric-note">26 talks · 30 speakers · June 2025</div>
+      </div>
+    </div>
+
+    <div class="client-label">Other events supported</div>
+    <div class="case-list">
+      <div class="case-row" style="border-top:none; padding-top:0;">
+        <div class="case-icon">→</div>
+        <div>
+          <div class="case-title">FCA EOFY Summit — 3-day virtual event (17–19 June 2026)</div>
+          <div class="case-desc">Supported promotional content and scheduling for a multi-day fintech/accounting virtual summit.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">→</div>
+        <div>
+          <div class="case-title">Accounting software (NZ) — webinar series</div>
+          <div class="case-desc">Produced briefs, promo images, and post-webinar EDMs for a recurring monthly webinar program including a high-profile PKF case study session. Post-event EDM achieved 58.1% open rate.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">→</div>
+        <div>
+          <div class="case-title">Payments SaaS — AUSTRAC compliance webinars (June–July 2026)</div>
+          <div class="case-desc">Wrote briefs and promo assets for two sessions (22 June and 15 July) tied to a regulatory deadline campaign.</div>
+        </div>
+      </div>
+      <div class="case-row">
+        <div class="case-icon">→</div>
+        <div>
+          <div class="case-title">Bookkeeping SaaS — November webinar + EDM follow-up</div>
+          <div class="case-desc">Post-webinar EDM sent to 170 attendees achieved 38.24% open rate and 43.08% CTR — driving 33 clicks to a payroll resource page.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags mt-2">
+      <span class="tag">Webinar briefs</span>
+      <span class="tag">Promo assets</span>
+      <span class="tag">Post-event EDMs</span>
+      <span class="tag">Speaker coordination</span>
+      <span class="tag tag-paddy">Virtual event marketing</span>
+      <span class="tag tag-paddy">Multi-day conferences</span>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- DISCLAIMER -->
+<div style="background: var(--pinch); border-top: 1px solid var(--pinch-dark); border-bottom: 1px solid var(--pinch-dark); padding: 2rem;">
+  <div style="max-width: 1000px; margin: 0 auto; display: flex; gap: 1rem; align-items: flex-start;">
+    <div style="flex-shrink: 0; margin-top: 2px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#59705B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </div>
+    <div>
+      <p style="font-size: 13px; font-weight: 600; color: var(--shamrock-dark); margin-bottom: 0.3rem;">A note on social &amp; EDM samples</p>
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">Due to contractual obligations with clients, I am unable to share images, copy, or screenshots from social media posts and email campaigns in this portfolio. The metrics and results shown above reflect real campaign outcomes — available for discussion in context during an interview or conversation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-wrap">
+  <div class="skills-inner">
+    <div class="skills-title">Skills &amp; tools</div>
+    <div class="skills-grid">
+      <span class="skill-pill">Meta Ads Manager</span>
+      <span class="skill-pill">Google Ads</span>
+      <span class="skill-pill">LinkedIn Ads</span>
+      <span class="skill-pill">LinkedIn Organic</span>
+      <span class="skill-pill">Mailchimp</span>
+      <span class="skill-pill">HubSpot</span>
+      <span class="skill-pill">Canva</span>
+      <span class="skill-pill">Riverside.fm</span>
+      <span class="skill-pill">Blog & SEO writing</span>
+      <span class="skill-pill">Case studies</span>
+      <span class="skill-pill">Technical writing</span>
+      <span class="skill-pill">Video content coordination</span>
+      <span class="skill-pill">Weekly reporting</span>
+      <span class="skill-pill">Analytics & insights</span>
+      <span class="skill-pill">Webinar marketing</span>
+      <span class="skill-pill">Event promotion</span>
+      <span class="skill-pill">EDM copywriting</span>
+      <span class="skill-pill">Content calendar management</span>
+      <span class="skill-pill">Creative A/B testing</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Digital Marketing Portfolio — All client names anonymised &nbsp;·&nbsp; Results from live campaigns across AU/NZ, 2024–2026</p>
+</footer>
+
+</body>
+</html>
